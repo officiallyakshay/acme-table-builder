@@ -11,8 +11,9 @@ class TableBuilder {
   }
 
   render() {
-    const th1 = `<th> ${this.columnHeader} </th>`
-    document.querySelector(this.selector).innerHTML = html;
+    const tableHeaders = `<tr>${this.columnHeader.map(header => `<th>${header.title}</th>`)}</tr>
+    <tr>${this.data.map(obj => `<td>${Object.values(obj)}</td>`)}</tr>`
+    document.querySelector(this.selector).innerHTML = tableHeaders;
   }
 
 }
@@ -60,14 +61,3 @@ const usersTable = new TableBuilder(
   '#usersTable'//id of DOM element
 );
 usersTable.init();
-
-
-
-
-
-
-
-
-
-
-
